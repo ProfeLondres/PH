@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Fortalecimiento de Habilidades Fundamentales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">
+                <i class="fas fa-graduation-cap"></i>
+                Plataforma de Fortalecimiento de Habilidades Fundamentales
+            </h1>
+            <div class="instructions">
+                <p><i class="fas fa-info-circle"></i> Haz clic en los botones "GIRAR" para seleccionar una actividad aleatoria. Cada actividad está diseñada para completarse en 5 minutos con grupos de máximo 20 estudiantes.</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Verbal Activities Section -->
+            <div class="section verbal-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-comments"></i> Actividades Verbales</h2>
+                    <p>Fortalece habilidades de comunicación y lenguaje</p>
+                </div>
+                
+                <div class="wheel-container">
+                    <canvas id="verbalWheel" width="300" height="300"></canvas>
+                    <div class="wheel-pointer"></div>
+                </div>
+                
+                <button id="spinVerbalBtn" class="spin-btn verbal-btn">
+                    <i class="fas fa-play"></i> GIRAR
+                </button>
+            </div>
+
+            <!-- Mathematical Activities Section -->
+            <div class="section math-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-calculator"></i> Actividades Matemáticas</h2>
+                    <p>Desarrolla habilidades numéricas y lógicas</p>
+                </div>
+                
+                <div class="wheel-container">
+                    <canvas id="mathWheel" width="300" height="300"></canvas>
+                    <div class="wheel-pointer"></div>
+                </div>
+                
+                <button id="spinMathBtn" class="spin-btn math-btn">
+                    <i class="fas fa-play"></i> GIRAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="activityModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <span class="close">×</span>
+            </div>
+            
+            <div class="modal-body">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="objetivo">
+                        <i class="fas fa-bullseye"></i> Objetivo
+                    </button>
+                    <button class="tab-btn" data-tab="materiales">
+                        <i class="fas fa-tools"></i> Materiales
+                    </button>
+                    <button class="tab-btn" data-tab="desarrollo">
+                        <i class="fas fa-play-circle"></i> Desarrollo
+                    </button>
+                    <button class="tab-btn" data-tab="ejemplos">
+                        <i class="fas fa-lightbulb"></i> Ejemplos
+                    </button>
+                </div>
+                
+                <div class="tab-content">
+                    <div id="objetivo" class="tab-pane active">
+                        <div id="objetivoContent"></div>
+                    </div>
+                    <div id="materiales" class="tab-pane">
+                        <div id="materialesContent"></div>
+                    </div>
+                    <div id="desarrollo" class="tab-pane">
+                        <div id="desarrolloContent"></div>
+                    </div>
+                    <div id="ejemplos" class="tab-pane">
+                        <div id="ejemplosContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio for spin sound -->
+    <audio id="spinSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT" type="audio/wav">
+    </audio>
+
+    <script src="activities.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
